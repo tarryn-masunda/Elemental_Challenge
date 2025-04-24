@@ -1,0 +1,462 @@
+
+body {
+  font-family: "Open Serif", sans-serif;
+  /* line-height: 1.6; */
+  font-size: 24px;
+  /* color: #061c2c; */
+  font-weight: lighter;
+  margin: 24px 0px;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999; 
+    background-color: white;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+}
+
+.nav-logo img {
+    max-width: 150px;
+    height: auto;
+  }
+
+/* Hamburger icon */
+.menu-toggle {
+  z-index: 10001;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 24px;
+  width: 30px;
+  padding: 10px;
+  margin-right: 50px;
+  gap: 6px;
+}
+/* Hamburger lines */
+.hamburger-menu {
+  display: block;
+  width: 30px;
+  height: 5px;
+  background-color: black;
+  border-radius: 2px;
+  transition: transform 0.4s, opacity 0.4s;
+}
+
+/* Transform spans to "X" */
+.menu-toggle.change span:nth-child(1) {
+  transform: rotate(45deg) translate(7px, 7px);
+}
+
+.menu-toggle.change span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.change span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+.menu-toggle.change span:nth-child(1),
+.menu-toggle.change span:nth-child(3) {
+  background-color: white;
+}
+
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+/* Nav links default hidden, shown on toggle */
+.nav-links {
+  display: none;
+  list-style: none;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  width: 90%;
+  background-color: #061c2c;
+  text-align: center;
+  padding: 20px 0;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  z-index: 1000;
+}
+
+.nav-links.active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #061c2c;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.nav-links li {
+  margin: 10px 0;
+}
+.nav-links.active a {
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  font-size: 1.2em; /* Slightly larger font size */
+  display: block; /* Make the whole link clickable */
+  padding: 10px 0; /* Add some vertical padding */
+}
+.nav-links a:hover {
+  color: #2ca8db; 
+  transition: color 0.3s ease;
+}
+
+
+/* Hero Section/Slider */
+.hero {
+  position: relative;
+  height: 500px;
+  background-color: #ddd;
+  overflow: hidden;
+  margin-top: 80px;
+}
+
+.slideshow-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.carousel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.carousel .caption {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffffff;
+  background-color: #244AC2;
+  padding: 12px 24px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  max-width: 60%;
+
+}
+.carousel {
+  position: relative;
+}
+
+/* Next buttons */
+.next {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #333;
+}
+
+/* The actual arrow shape */
+.next::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  border-top: 4px solid white;
+  border-right: 4px solid white;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: .4
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+/* The dots/bullets/indicators */
+.dot-container {
+  position: absolute;
+  bottom: 30px;
+  right: 40px;
+  width: auto;
+  text-align: right;
+  z-index: 10;
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 5px;
+  background-color: #061c2c;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+
+}
+
+.active,
+.dot:hover {
+  background-color: #f4f4f4;
+}
+
+.about {
+  display: flex;
+  padding: 40px 20px;
+  justify-content: center;
+  background-color: #f9f9f9; 
+}
+
+.about-container {
+  max-width: 1200px; 
+  margin: 0 auto; 
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem; 
+  justify-content: space-between; 
+}
+
+.about-text {
+  flex: 1; 
+  margin-right: 40px; 
+  line-height: 1.6;
+  font-weight: lighter;
+}
+
+.about-text p {
+  font-size: 24px;
+  margin: 0px 0px 24px;
+  line-height: 1.6; 
+  color: #061c2c;
+  max-width: 1500px;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  font-weight: lighter;
+}
+
+.visio-icons {
+  display: flex;
+  gap: 10px; 
+  margin: 34px 0px 0px;
+  align-items: center;
+}
+
+.visio-icons img {
+  max-width: 800px; 
+  height: auto;
+  object-fit: contain;
+  float: right;
+  width: 416px;
+  /* height: 42px; */
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: 34px;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column; 
+    align-items: flex-start; 
+    text-align: left;
+  }
+
+  .visio-icons {
+    justify-content: flex-start; 
+  }
+
+  .visio-icons img {
+    max-width: 100%;
+  }
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  background-color: white;
+  gap: 20px;
+  flex-direction: column; 
+}
+
+.card {
+  background-color: #061c2c;
+  padding: 20px 0 20px 100px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
+  display: flex; 
+  align-items: center; 
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: top 20px left 20px; 
+  width: 100%; 
+  height: auto;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card .arrow {
+  font-size: 60px;
+  color: #2ca8db;
+  position: absolute; 
+  left: 20px;
+  top: 20px; 
+  padding: 20px 0;
+}
+.arrow {
+  width: 24px;
+  height: 24px;
+  background-image: url('icon/light-blue-arrow.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.card h2 {
+  font-size: 22px;
+  color: white;
+  margin: 20px;
+}
+
+/* Make cards square on larger screens */
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row; 
+  }
+
+  .card {
+    width: 30%;
+    height: auto; 
+    padding: 20px; 
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+    background-position: top 20px left 20px;
+  }
+
+  .card .arrow {
+    position: static;
+    margin-bottom: 10px;
+  }
+
+  .card h2 {
+    margin-left: 0; 
+  }
+}
+
+.buttons {
+  display: flex ;
+  /* flex-wrap: wrap; */
+  justify-content: center;
+  padding: 20px;
+  gap: 10px;
+  background-color: #f4f4f4;
+}
+
+.btn {
+  background-color: #2245cc;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 180px;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #061c2c
+}
+
+.btn .arrow {
+  margin-left: 10px;
+  color: #2ca8db;
+}
+.btn-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+  .buttons {
+    display: grid;
+    padding: 20px;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+    background-color: #f4f4f4;
+  }
+
+  .btn {
+    width: 100%; 
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 850px) {
+  .buttons {
+    display: grid;
+    padding: 20px;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
+    background-color: #f4f4f4;
+  }
+
+  .btn {
+    width: 100%; 
+    margin-bottom: 5px;
+  }
+}
+
+/* Footer Styles (Basic) */
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+}

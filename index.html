@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css" />
+  <title>Elemental Challenge</title>
+</head>
+
+<body>
+<nav class="navbar">
+    <div class="nav-logo">
+        <img src="logo/VISIO logo.png" alt="logo">
+    </div>
+
+    <div class="menu-toggle" id="menu-toggle">
+      <span class="hamburger-menu"></span>
+      <span class="hamburger-menu"></span>
+      <span class="hamburger-menu"></span>
+    </div>
+    
+    <ul class="nav-links" id="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Funds & Investments</a></li>
+        <li><a href="#">Team</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+  
+  <section class="hero">
+    <div class="slideshow-container">
+      <div class="carousel fade">
+        <img src="images/carousel photo 1.png" alt="painting-1">
+        <div class="caption">We can and we will</div>
+      </div>
+
+      <div class="carousel fade">
+        <img src="images/carousel photo 2.jpg" alt="painting-2">
+        <div class="caption">Looking beyond the ordinary for 21 years</div>
+      </div>
+
+      <div class="carousel fade">
+        <img src="images/carousel photo 3.png" alt="painting-3">
+        <div class="caption">We leave no stone unturned</div>
+      </div>
+
+      <div class="carousel fade">
+        <img src="images/carousel photo 4.png" alt="painting-4">
+        <div class="caption">Art is love</div>
+      </div>
+
+      <a class="next" onclick="plusSlides(1)"></a>
+    </div>
+
+    <div class="dot-container">
+      
+      <span class="dot" onclick="currentSlide(1)">     </span>
+      <span class="dot" onclick="currentSlide(2)">
+      </span>
+      <span class="dot" onclick="currentSlide(3)">
+      </span>
+      <span class="dot" onclick="currentSlide(4)">
+      </span>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="about-container">
+      <div class="about-text">
+        <p>
+          Visio is an investment management firm initially founded by Patrice Moyal in 2003.
+          The nimble, highly focused and dynamic team manage assets across listed strategies
+          for a diversified client base that includes some of the world’s largest and most
+          sophisticated investors.
+        </p>
+      </div>
+      <div class="visio-icons">
+        <span><img src="icon/asset32.svg" alt="blue-icons"></span>
+      </div>
+    </div>
+
+  </section>
+  
+    <!-- Three Card Blocks -->
+  
+  <div class="container">
+    <div class="card">
+      <div class="arrow">&gt;</div>
+      <h2>THE VISIO<br>DIFFERENCE</h2>
+    </div>
+    
+    <div class="card">
+      <div class="arrow">&gt;</div>
+      <h2>MEET THE<br>VISIO TEAM</h2>
+    </div>
+    <div class="card">
+      <div class="arrow">&gt;</div>
+      <h2>OUR FUNDS<br>AND INVESTMENTS</h2>
+    </div>
+  </div>
+
+  <div class="buttons" style="border: 2px solid hotpink;">
+    <button class="btn">
+      HEDGE FUNDS <span class="light-blue-arrow"><img src="icon/asset2.svg" alt="Hedge Icon" class="btn-icon" /></span>
+    </button>
+  
+    <button class="btn">
+     UNIT TRUSTS <span class="light-blue-arrow"> <img src="icon/asset2.svg" alt="Unit Icon" class="btn-icon" /></span>
+    </button>
+  
+    <button class="btn">
+      SEGREGATED MANDATES <span class="light-blue-arrow"><img src="icon/asset2.svg" alt="Segregated Icon" class="btn-icon" /></span>
+    </button>
+  
+    <button class="btn">
+      AFRICA FUNDS <span class="light-blue-arrow"><img src="icon/asset2.svg" alt="Africa Icon" class="btn-icon" /></span>
+    </button>
+  
+    <button class="btn">
+     FUND PERFORMANCE <span class="light-blue-arrow"> <img src="icon/asset2.svg" alt="Performance Icon" class="btn-icon" /></span>
+    </button>
+  
+    <button class="btn">
+     RISK MANAGEMENT <span class="light-blue-arrow"> <img src="icon/asset2.svg" alt="Risk Icon" class="btn-icon" /></span>
+    </button>
+  </div>
+  
+  
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
+
