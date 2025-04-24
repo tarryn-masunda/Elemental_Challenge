@@ -1,9 +1,10 @@
 
 body {
   font-family: "Open Serif", sans-serif;
-  line-height: 1.6;
+  /* line-height: 1.6; */
   font-size: 24px;
-  color: #061c2c;
+  /* color: #061c2c; */
+  font-weight: lighter;
   margin: 24px 0px;
 }
 
@@ -28,36 +29,30 @@ body {
 
 /* Hamburger icon */
 .menu-toggle {
-  z-index: 1000;
+  z-index: 10001;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 24px;
   width: 30px;
-  padding: 4px;
-  align-items: center;
+  padding: 10px;
+  margin-right: 50px;
+  gap: 6px;
 }
-
-.menu-toggle {
-  border: 1px dashed red; /* REMOVE LATER */
-}
-
-.menu-toggle span {
+/* Hamburger lines */
+.hamburger-menu {
   display: block;
-  width: 100%;
-  height: 4px;
-  margin: 6px 0;
-  background-color: #333;
-  transition: 0.4s;
+  width: 30px;
+  height: 5px;
+  background-color: black;
   border-radius: 2px;
-  align-items: center;
-
+  transition: transform 0.4s, opacity 0.4s;
 }
 
 /* Transform spans to "X" */
 .menu-toggle.change span:nth-child(1) {
-  transform: rotate(-45deg) translate(-6px, 6px);
+  transform: rotate(45deg) translate(7px, 7px);
 }
 
 .menu-toggle.change span:nth-child(2) {
@@ -65,9 +60,19 @@ body {
 }
 
 .menu-toggle.change span:nth-child(3) {
-  transform: rotate(45deg) translate(-5px, -5px);
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+.menu-toggle.change span:nth-child(1),
+.menu-toggle.change span:nth-child(3) {
+  background-color: white;
 }
 
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+}
 
 /* Nav links default hidden, shown on toggle */
 .nav-links {
@@ -77,32 +82,50 @@ body {
   position: absolute;
   top: 60px;
   right: 20px;
-  width: 100%;
+  width: 90%;
   background-color: #061c2c;
   text-align: center;
   padding: 20px 0;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   border-radius: 10px;
+  z-index: 1000;
 }
 
 .nav-links.active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #061c2c;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  padding: 40px;
+  box-sizing: border-box;
 }
 
 .nav-links li {
   margin: 10px 0;
 }
-.nav-links a {
+.nav-links.active a {
   text-decoration: none;
-  color: white;
   font-weight: bold;
+  color: white;
+  font-size: 1.2em; /* Slightly larger font size */
+  display: block; /* Make the whole link clickable */
+  padding: 10px 0; /* Add some vertical padding */
 }
-  
-@media (min-width: 768px) {
-  .menu-toggle {
-    display: none;
-  }
+.nav-links a:hover {
+  color: #2ca8db; 
+  transition: color 0.3s ease;
 }
+
+
 /* Hero Section/Slider */
 .hero {
   position: relative;
@@ -219,22 +242,26 @@ body {
 }
 
 .about {
-  padding: 40px 20px; /* Add vertical and horizontal padding */
-  background-color: #f9f9f9; /* Optional: Light background color */
+  display: flex;
+  padding: 40px 20px;
+  justify-content: center;
+  background-color: #f9f9f9; 
 }
 
 .about-container {
-  max-width: 1200px; /* Limit the maximum width of the content */
-  margin: 0 auto; /* Center the content horizontally */
+  max-width: 1200px; 
+  margin: 0 auto; 
   display: flex;
-  align-items: center; /* Vertically align text and icons */
-  justify-content: space-between; /* Put space between text and icons */
-  padding: 20px; /* Add some padding inside the container */
+  align-items: flex-start;
+  gap: 2rem; 
+  justify-content: space-between; 
 }
 
 .about-text {
-  flex: 1; /* Allow text to take up available space */
-  margin-right: 40px; /* Add some spacing between text and icons */
+  flex: 1; 
+  margin-right: 40px; 
+  line-height: 1.6;
+  font-weight: lighter;
 }
 
 .about-text p {
@@ -246,39 +273,42 @@ body {
   width: 100%;
   margin: 0 auto;
   overflow: hidden;
+  font-weight: lighter;
 }
 
 .visio-icons {
   display: flex;
   gap: 10px; 
   margin: 34px 0px 0px;
+  align-items: center;
 }
 
 .visio-icons img {
-  max-width: 100%; 
+  max-width: 800px; 
   height: auto;
-  right: 50px;
+  object-fit: contain;
+  float: right;
+  width: 416px;
+  /* height: 42px; */
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: 34px;
 }
 
 /* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
   .about-container {
     flex-direction: column; 
-    align-items: flex-start; /* Align items to the left */
-    text-align: left; /* Align text to the left */
-  }
-
-  .about-text {
-    margin-right: 0; /* Remove right margin */
-    margin-bottom: 20px; /* Add bottom margin to separate text and icons */
+    align-items: flex-start; 
+    text-align: left;
   }
 
   .visio-icons {
-    justify-content: flex-start; /* Align icons to the start */
+    justify-content: flex-start; 
   }
 
   .visio-icons img {
-    max-width: 80px; /* Slightly reduce icon size on smaller screens */
+    max-width: 100%;
   }
 }
 .container {
@@ -298,7 +328,6 @@ body {
   display: flex; 
   align-items: center; 
   position: relative;
-  background-image: url(icon/light-blue-arrow);
   background-repeat: no-repeat;
   background-position: top 20px left 20px; 
   width: 100%; 
@@ -359,7 +388,7 @@ body {
 
 .buttons {
   display: flex ;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   justify-content: center;
   padding: 20px;
   gap: 10px;
@@ -370,7 +399,6 @@ body {
   background-color: #2245cc;
   color: white;
   padding: 10px 20px;
-  border: none;
   cursor: pointer;
   font-weight: bold;
   display: flex;
@@ -381,17 +409,42 @@ body {
 }
 
 .btn:hover {
-  background-color: #2ca8db
+  background-color: #061c2c
 }
 
 .btn .arrow {
   margin-left: 10px;
   color: #2ca8db;
 }
+.btn-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
 /* Responsive adjustments for smaller screens */
 @media (max-width: 600px) {
   .buttons {
-    justify-content: flex-start; 
+    display: grid;
+    padding: 20px;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+    background-color: #f4f4f4;
+  }
+
+  .btn {
+    width: 100%; 
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 850px) {
+  .buttons {
+    display: grid;
+    padding: 20px;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
+    background-color: #f4f4f4;
   }
 
   .btn {
